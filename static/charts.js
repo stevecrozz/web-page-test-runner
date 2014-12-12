@@ -31,9 +31,7 @@ function startWpt() {
 
   var draw = function(data){
     var data = new google.visualization.DataTable();
-      debugger
     data.addColumn('date', 'Date');
-    data.addColumn('
     data.addRows([
       [new Date(2008, 1 ,1), 30000, undefined, undefined, 40645, undefined, undefined],
       [new Date(2008, 1 ,2), 14045, undefined, undefined, 20374, undefined, undefined],
