@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'rack'
+require 'haml'
+require 'sequel'
+require 'json'
+require 'pry'
+require './src/web'
+require './src/db'
+
+builder = Rack::Builder.new do
+  use Rack::Static, :urls => ['/static']
+  run Wpt::Web.new
+end
+
+Rack::Handler::WEBrick.run builder, :Port => 9292

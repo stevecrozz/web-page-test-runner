@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'net/http'
+require 'uri'
+require 'pry'
+require 'sequel'
+require './src/db'
+require './src/test'
+require './src/coordinator'
+require './src/saver'
+require './src/runner'
+
+runner = Wpt::Runner.new(
+  scripts: Dir.glob('definitions/*.script'),
+  endpoint: 'http://localhost:8000'
+)
+
+runner.run
