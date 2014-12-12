@@ -88,10 +88,13 @@ module Wpt
     end
 
     get '/series.json' do
+      select = params['series'].map(&:to_sym)
+      select << :date
+
       json(
         db.results
           .where(name: params['app'], type: params['type'])
-          .select(:date, params['series'].to_sym)
+          .select(*select)
           .all)
     end
   end
